@@ -1,0 +1,27 @@
+{
+	"ParentPolicy": [
+		{
+			"APIs": [
+				"cazt:*",
+				"iam:*"
+			],
+			"Effect": "Deny",
+			"Resources": [
+				"*"
+			]
+		}
+	],
+	"DescendantChildPolicy": [
+		{
+			"APIs": [
+				"cazt:*",
+				"iam:BindRole"
+			],
+			"Effect": "Allow",
+			"Resources": [
+				"arn:cloud:cazt:REGION:ACCOUNTID:*",
+				"arn:cloud:iam:REGION:ACCOUNTID:*"
+			]
+		}
+	]
+}

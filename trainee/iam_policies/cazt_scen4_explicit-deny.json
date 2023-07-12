@@ -1,0 +1,27 @@
+[
+    {
+        "APIs": [
+            "cazt:CreateMoggy",
+            "cazt:GetMoggy",
+            "cazt:DeleteMoggy",
+            "cazt:ListMoggies",
+            "cazt:RunMoggyActivity",
+            "cazt:PetSitter",
+            "objstor:*"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "*"
+        ]
+    },
+    {
+        "Action": [
+            "cazt:*"
+        ],
+        "Descriptor": "DenyJustTheCAZTService",
+        "Effect": "Deny",
+        "Resources": [
+            "*"
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+[
+        {
+            "Descriptor": "OnlyDependentInputResources",
+            "Effect": "Allow",
+            "APIs": [
+                "objstor:*"
+            ],
+            "Resources": [
+                "*"
+            ]
+        }
+    ]

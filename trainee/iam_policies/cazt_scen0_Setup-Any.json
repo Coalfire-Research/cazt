@@ -1,0 +1,21 @@
+[
+    {
+        "APIs": [
+            "cazt:*"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:cazt:REGION:ACCOUNTID:*"
+        ]
+    },
+    {
+        "APIs": [
+            "objstor:*"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "*"
+        ],
+        "Descriptor": "DependentInputResources"
+    }
+]

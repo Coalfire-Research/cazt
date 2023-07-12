@@ -1,0 +1,22 @@
+[
+    {
+        "APIs": [
+            "cazt:PetSitter",
+            "iam:BindRole"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:iam:REGION:ACCOUNTID:CareForPets"
+        ]
+    },
+    {
+        "APIs": [
+            "cazt:PetSitter",
+            "iam:BindRole"
+        ],
+        "Effect": "Deny",
+        "Resources": [
+            "arn:cloud:iam:REGION:ACCOUNTID:FullAdmin"
+        ]
+    }
+]

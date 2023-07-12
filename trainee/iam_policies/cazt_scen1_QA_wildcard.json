@@ -1,0 +1,11 @@
+[
+    {
+        "APIs": [
+            "cazt:ListMoggies"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:cazt:REGION:ACCOUNTID:*"
+        ]
+    }
+]

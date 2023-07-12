@@ -1,0 +1,15 @@
+[
+    {
+        "APIs": [
+            "cazt:*",
+            "objstor:*"
+        ],
+        "Descriptor": "AttackersAccountSetting",
+        "Effect": "Allow",
+        "Resources": [
+            "*",
+            "arn:cloud:cazt:*:*:*",
+            "arn:cloud:cazt:REGION:000000000000:not-your-account-resource-id"
+        ]
+    }
+]

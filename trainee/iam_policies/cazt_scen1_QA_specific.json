@@ -1,0 +1,33 @@
+[
+    {
+        "APIs": [
+            "cazt:CreateMoggy",
+            "cazt:GetMoggy",
+            "cazt:DeleteMoggy",
+            "cazt:RunActivityMoggy"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:cazt:REGION:ACCOUNTID:MyMoggy"
+        ]
+    },
+    {
+        "APIs": [
+            "cazt:PetSitter"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:iam:REGION:ACCOUNTID:CareForPets"
+        ]
+    },
+    {
+        "APIs": [
+            "objstor:*"
+        ],
+        "Descriptor": "DependentInputResources",
+        "Effect": "Allow",
+        "Resources": [
+            "arn:cloud:objstor:::moggylitterbox-ACCOUNTID"
+        ]
+    }
+]

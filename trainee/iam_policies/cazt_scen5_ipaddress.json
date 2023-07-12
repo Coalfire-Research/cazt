@@ -1,0 +1,27 @@
+[
+    {
+        "APIs": [
+            "cazt:*"
+        ],
+        "Effect": "Allow",
+        "Resources": [
+            "*"
+        ],
+        "Restriction": {
+            "MustMatch": [
+                "CallerIPAddress",
+                "256.256.256.256"
+            ]
+        }
+    },
+    {
+        "APIs": [
+            "objstor:*"
+        ],
+        "Descriptor": "DependentInputResources",
+        "Effect": "Allow",
+        "Resources": [
+            "*"
+        ]
+    }
+]
