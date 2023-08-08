@@ -51,14 +51,14 @@ One common requirement is to create resources in multiple cloud accounts to faci
 
 gcloud cazt create \
     --api-endpoint-overrides=https://cazt.gcloud.localtest.me:8443/uat \
-    --account=cazt_scen1_QA_specific@000000001111 \
+    --account=cazt_scen0_Setup-Any@000000001111 \
     --format json \
     --name=MyMoggy \
     --activity-log-object-storage=moggylitterbox-000000001111
 
 gcloud cazt create \
     --api-endpoint-overrides=https://cazt.gcloud.localtest.me:8443/uat \
-    --account=cazt_scen1_QA_specific@000000002222 \
+    --account=cazt_scen0_Setup-Any@000000002222 \
     --format json \
     --name=NotMyMoggy \
     --activity-log-object-storage=moggylitterbox-000000002222
