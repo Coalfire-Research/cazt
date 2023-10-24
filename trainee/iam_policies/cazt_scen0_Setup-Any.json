@@ -1,11 +1,13 @@
 [
     {
         "APIs": [
-            "cazt:*"
+            "cazt:*",
+            "iam:BindRole"
         ],
         "Effect": "Allow",
         "Resources": [
-            "arn:cloud:cazt:REGION:ACCOUNTID:*"
+            "arn:cloud:cazt:REGION:ACCOUNTID:*",
+            "arn:cloud:iam:REGION:ACCOUNTID:*"
         ]
     },
     {
