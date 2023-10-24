@@ -411,6 +411,7 @@ def impersonation_bind_role_moggy(request_content, identity_account_id, iam_simu
     if (
         iam_simulation_mode != SimulationMode.IMPERSONATION
         and iam_simulation_mode != SimulationMode.QA_SPECIFIC_API_RESOURCES
+        and iam_simulation_mode != SimulationMode.ALLOW_ALL_SAME_ACCOUNT
        ):
         # Not applicable to this API and the other policies implicitly deny
         return _generate_response(403, f"User is not authorized to call cazt:PetSitter on resource {arn}")
