@@ -1,4 +1,4 @@
-# © 2023 Coalfire
+# © 2023-2025 Coalfire
 #
 # Author: Rodney Beede
 
@@ -24,15 +24,17 @@ def main(args):
         ("", args.port),  # All IPv6 or IPv4 interfaces
         FunctionHandoffHTTPRequestHandler
     )
-       
-    http_daemon.socket = ssl.wrap_socket(
-        http_daemon.socket,
-        keyfile = Path(SCRIPT_DIR, "x509", "server.key"),
-        certfile = Path(SCRIPT_DIR, "x509", "server.crt"),
-        server_side = True,
-        ssl_version = ssl.PROTOCOL_TLS_SERVER  # version agnostic
-    )
     
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain(
+            certfile = Path(SCRIPT_DIR, "x509", "server.crt"),
+            keyfile = Path(SCRIPT_DIR, "x509", "server.key")
+            )
+
+    http_daemon.socket = ssl_context.wrap_socket(
+            http_daemon.socket,
+            server_side = True)
+
     http_daemon.serve_forever()
     
     print(f"[INFO] terminating...")
@@ -79,7 +81,16 @@ class FunctionHandoffHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         if "Authorization" in self.headers:
             val = self.headers.get("Authorization")
             
-            if "Bearer" in val:
+            if "AWS4-HMAC-SHA256" in val:
+                matched = re.search("Credential[=]AKIA(\d{12})_(cazt_[^/]+)", val)
+                
+                if not matched:
+                    handler_payload["identity"]["username"] = val
+                    handler_payload["identity"]["accountId"] = val
+                else:
+                    handler_payload["identity"]["username"] = matched.group(2)
+                    handler_payload["identity"]["accountId"] = matched.group(1)
+            elif "Bearer" in val:
                 base64_credential = val[len("Bearer "):]
 
                 try:
